@@ -1,0 +1,1 @@
+const ageLimit = document.getElementById('age_limit')

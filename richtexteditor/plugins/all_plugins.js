@@ -219,6 +219,7 @@ function RTE_Plugin_ImageEditor() {
 	}
 
 	obj.DoImageEditor = function () {
+		console.log("test");
 
 		var img = editor.getSelectedControl();
 		if (!img)
@@ -272,6 +273,7 @@ function RTE_Plugin_ImageEditor() {
 			savebtn.innerText = "Save";
 			savebtn.onclick = function () {
 
+			
 				var dataurl = imgeditor.toDataURL();
 				if (!config.file_upload_handler) {
 					img.src = dataurl;
