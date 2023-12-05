@@ -19,9 +19,9 @@
         }
 
         .services, .practices {
-            max-width: 60%;
-            margin: auto;
-            padding: 20px 0;
+        max-width: 60%;
+        margin: auto;
+        padding: 20px 0;
         }
 
         .services .row, .practices .row {
@@ -99,7 +99,7 @@
             }
 
             .services img {
-                display: none;
+            display: none;
             }
 
             .services-column:hover {
@@ -121,16 +121,16 @@
         }
 
         .banner-btn:hover {
-            border: 1px solid #4c85bd;
-            background: #4c85bd;
-            transition: 0.8s;
+        border: 1px solid #4c85bd;
+        background: #4c85bd;
+        transition: 0.8s;
         }
 
         .blue-btn {
-            color: #4c85bd;
-            border: 1px solid #4c85bd;
-            background: #fff;
-            transition: 0.5s;
+        color: #4c85bd;
+        border: 1px solid #4c85bd;
+        background: #fff;
+        transition: 0.5s;
         }
 
         .blue-btn:hover {
@@ -143,6 +143,7 @@
 <body>
 
 
+<!-- First Service Section -->
 <section class="services">
     <div class="row">
         <div class="services-column">
@@ -170,63 +171,62 @@
 
 
 
-<div id="div_editor1" >
-    <div class="services-column">
+    <div id="div_editor1" >
         <div class="services-column">
-            <div class="servicecard-text">
-                <h3>test</h3>
-                <p>test.</p>
-                <ul>
-                    <li>test</li>
-                    <li>test</li>
-                    <li>test</li>
-                    <li>test</li>
-                    <li>test/li>
-                </ul>
+            <div class="services-column">
+                <div class="servicecard-text">
+                    <h3>test</h3>
+                    <p>test.</p>
+                    <ul>
+                        <li>test</li>
+                        <li>test</li>
+                        <li>test</li>
+                        <li>test</li>
+                        <li>test/li>
+                    </ul>
 
-                <a href="https://www.google.com/search?sca_esv=588087316&sxsrf=AM9HkKnjbY9F1Stz2kZ4QgwvbkxBlHin6w:1701800390004&q=horse+memes&tbm=isch&source=lnms&sa=X&ved=2ahUKEwjK4eW99PiCAxVf1gIHHZhYC24Q0pQJegQIDRAB&biw=2560&bih=1291" class="banner-btn blue-btn"> Læs Mere</a>
+                    <a href="https://www.google.com/search?sca_esv=588087316&sxsrf=AM9HkKnjbY9F1Stz2kZ4QgwvbkxBlHin6w:1701800390004&q=horse+memes&tbm=isch&source=lnms&sa=X&ved=2ahUKEwjK4eW99PiCAxVf1gIHHZhYC24Q0pQJegQIDRAB&biw=2560&bih=1291" class="banner-btn blue-btn"> Læs Mere</a>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
-<script>
+    <script>
 
-    var editor1 = new RichTextEditor("#div_editor1");
+        var editor1 = new RichTextEditor("#div_editor1");
 
-    function createSaveButton(editorSelector) {
-        var button_save = document.createElement("button");
-        button_save.textContent = "Save HTML";
-        button_save.addEventListener("click", function () {
-            var editor = document.querySelector(editorSelector + ' iframe.rte-editable');
 
-            // Get the inner content from the RichTextEditor's editable div
-            var innerContent = editor.contentDocument.body.innerHTML;
 
-            // Preserve the existing image HTML
-            var existingImage = document.querySelector(".services-column .servicecard-img img");
-            var imageHTML = existingImage ? existingImage.outerHTML : "";
+        // Function to create "Save HTML" button for a service section
+        function createSaveButton(editorSelector) {
+            var button_save = document.createElement("button");
+            button_save.textContent = "Save HTML";
+            button_save.addEventListener("click", function () {
+                var serviceSection = document.querySelector(editorSelector);
 
-            // Create a temporary div to hold the inner content
-            var tempDiv = document.createElement('div');
-            tempDiv.innerHTML = innerContent;
+                // Get the text content from the textarea-based Rich Text Editor
+                var textContent = serviceSection.querySelector(".servicecard-text").value;
 
-            // Extract the content from the temporary div (removing the unnecessary wrapper)
-            var textContent = tempDiv.querySelector('.services-column').innerHTML;
+                // Preserve the existing image HTML
+                var existingImage = serviceSection.querySelector(".servicecard-img img");
+                var imageHTML = existingImage ? existingImage.outerHTML : "";
 
-            // Replace the existing content in the servicecard-text div with new text content
-            var existingContentText = document.querySelector(".services-column .servicecard-text");
-            existingContentText.innerHTML = textContent;
+                // Replace the existing content in the servicecard-text div with new text content
+                var existingContentText = serviceSection.querySelector(".servicecard-text");
+                existingContentText.innerHTML = textContent;
 
-            // Replace the existing content in the servicecard-img div with the preserved image HTML
-            var existingContentImg = document.querySelector(".services-column .servicecard-img");
-            existingContentImg.innerHTML = imageHTML;
-        });
-        document.body.appendChild(button_save);
-    }
+                // Replace the existing content in the servicecard-img div with the preserved image HTML
+                var existingContentImg = serviceSection.querySelector(".servicecard-img");
+                existingContentImg.innerHTML = imageHTML;
+            });
 
-    createSaveButton("#div_editor1");
-</script>
+            // Append the button to the body
+            document.body.appendChild(button_save);
+        }
+
+        // Create "Save HTML" button for the first service section
+        createSaveButton(".services-column");
+    </script>
 </body>
 </html>
