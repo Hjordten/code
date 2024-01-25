@@ -19,9 +19,9 @@
         }
 
         .services, .practices {
-            max-width: 60%;
-            margin: auto;
-            padding: 20px 0;
+        max-width: 60%;
+        margin: auto;
+        padding: 20px 0;
         }
 
         .services .row, .practices .row {
@@ -99,7 +99,7 @@
             }
 
             .services img {
-                display: none;
+            display: none;
             }
 
             .services-column:hover {
@@ -121,16 +121,16 @@
         }
 
         .banner-btn:hover {
-            border: 1px solid #4c85bd;
-            background: #4c85bd;
-            transition: 0.8s;
+        border: 1px solid #4c85bd;
+        background: #4c85bd;
+        transition: 0.8s;
         }
 
         .blue-btn {
-            color: #4c85bd;
-            border: 1px solid #4c85bd;
-            background: #fff;
-            transition: 0.5s;
+        color: #4c85bd;
+        border: 1px solid #4c85bd;
+        background: #fff;
+        transition: 0.5s;
         }
 
         .blue-btn:hover {
@@ -143,6 +143,7 @@
 <body>
 
 
+<!-- First Service Section -->
 <section class="services">
     <div class="row">
         <div class="services-column">
@@ -170,110 +171,62 @@
 
 
 
-<div id="div_editor1" >
-    <div class="services-column">
+    <div id="div_editor1" >
         <div class="services-column">
-<<<<<<< HEAD
             <div class="services-column">
-                <div>
-                    <h3>Massage</h3>
-                    <p>Grundstenen i mit arbejde med hesten.</p>
+                <div class="servicecard-text">
+                    <h3>test</h3>
+                    <p>test.</p>
                     <ul>
-                        <li>Oliemassage</li>
-                        <li>Tryk syd for navlen massage</li>
-                        <li>Body Paint massage</li>
-                        <li>Bindevævsmassage</li>
-                        <li>Udstrækning</li>
+                        <li>test</li>
+                        <li>test</li>
+                        <li>test</li>
+                        <li>test</li>
+                        <li>test/li>
                     </ul>
-                
-                    <a href="#" class="banner-btn blue-btn"> Læs Mere</a>
-                </div>
-            </div>
-        </div>    
-    </textarea>
-        
-        
-    <script>
-       
-       var editor1 = new RichTextEditor("#div_editor1");
-=======
-            <div class="servicecard-text">
-                <h3>test</h3>
-                <p>test.</p>
-                <ul>
-                    <li>test</li>
-                    <li>test</li>
-                    <li>test</li>
-                    <li>test</li>
-                    <li>test/li>
-                </ul>
 
-                <a href="https://www.google.com/search?sca_esv=588087316&sxsrf=AM9HkKnjbY9F1Stz2kZ4QgwvbkxBlHin6w:1701800390004&q=horse+memes&tbm=isch&source=lnms&sa=X&ved=2ahUKEwjK4eW99PiCAxVf1gIHHZhYC24Q0pQJegQIDRAB&biw=2560&bih=1291" class="banner-btn blue-btn"> Læs Mere</a>
+                    <a href="https://www.google.com/search?sca_esv=588087316&sxsrf=AM9HkKnjbY9F1Stz2kZ4QgwvbkxBlHin6w:1701800390004&q=horse+memes&tbm=isch&source=lnms&sa=X&ved=2ahUKEwjK4eW99PiCAxVf1gIHHZhYC24Q0pQJegQIDRAB&biw=2560&bih=1291" class="banner-btn blue-btn"> Læs Mere</a>
+                </div>
             </div>
         </div>
     </div>
-</div>
->>>>>>> 37f83b0396a62be374984c12b3548d0535af0783
 
-function createSaveButton(editorSelector) {
-    var buttonSave = document.createElement("button");
-    buttonSave.textContent = "Save HTML";
-    buttonSave.addEventListener("click", function () {
-        var editor = document.querySelector(editorSelector);
-        if (editor) {
-            var htmlContent = editor.contentDocument.documentElement.textContent;
 
-<<<<<<< HEAD
-            console.log(htmlContent); // Log full HTML content to console
-        } else {
-            console.error("Editor iframe not found with selector: " + editorSelector);
+    <script>
+
+        var editor1 = new RichTextEditor("#div_editor1");
+
+
+
+        // Function to create "Save HTML" button for a service section
+        function createSaveButton(editorSelector) {
+            var button_save = document.createElement("button");
+            button_save.textContent = "Save HTML";
+            button_save.addEventListener("click", function () {
+                var serviceSection = document.querySelector(editorSelector);
+
+                // Get the text content from the textarea-based Rich Text Editor
+                var textContent = serviceSection.querySelector(".servicecard-text").value;
+
+                // Preserve the existing image HTML
+                var existingImage = serviceSection.querySelector(".servicecard-img img");
+                var imageHTML = existingImage ? existingImage.outerHTML : "";
+
+                // Replace the existing content in the servicecard-text div with new text content
+                var existingContentText = serviceSection.querySelector(".servicecard-text");
+                existingContentText.innerHTML = textContent;
+
+                // Replace the existing content in the servicecard-img div with the preserved image HTML
+                var existingContentImg = serviceSection.querySelector(".servicecard-img");
+                existingContentImg.innerHTML = imageHTML;
+            });
+
+            // Append the button to the body
+            document.body.appendChild(button_save);
         }
-    });
-    document.body.appendChild(buttonSave);
-}
 
-createSaveButton("#div_editor1");
-        
-    
+        // Create "Save HTML" button for the first service section
+        createSaveButton(".services-column");
     </script>
-=======
-<script>
-
-    var editor1 = new RichTextEditor("#div_editor1");
-
-    function createSaveButton(editorSelector) {
-        var button_save = document.createElement("button");
-        button_save.textContent = "Save HTML";
-        button_save.addEventListener("click", function () {
-            var editor = document.querySelector(editorSelector + ' iframe.rte-editable');
-
-            // Get the inner content from the RichTextEditor's editable div
-            var innerContent = editor.contentDocument.body.innerHTML;
-
-            // Preserve the existing image HTML
-            var existingImage = document.querySelector(".services-column .servicecard-img img");
-            var imageHTML = existingImage ? existingImage.outerHTML : "";
-
-            // Create a temporary div to hold the inner content
-            var tempDiv = document.createElement('div');
-            tempDiv.innerHTML = innerContent;
-
-            // Extract the content from the temporary div (removing the unnecessary wrapper)
-            var textContent = tempDiv.querySelector('.services-column').innerHTML;
-
-            // Replace the existing content in the servicecard-text div with new text content
-            var existingContentText = document.querySelector(".services-column .servicecard-text");
-            existingContentText.innerHTML = textContent;
-
-            // Replace the existing content in the servicecard-img div with the preserved image HTML
-            var existingContentImg = document.querySelector(".services-column .servicecard-img");
-            existingContentImg.innerHTML = imageHTML;
-        });
-        document.body.appendChild(button_save);
-    }
-
-    createSaveButton("#div_editor1");
-</script>
->>>>>>> 37f83b0396a62be374984c12b3548d0535af0783
 </body>
 </html>

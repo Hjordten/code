@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/richtexteditor/rte_theme_default.css" />
+    <script type="text/javascript" src="/richtexteditor/rte.js"></script>
+    <script type="text/javascript" src='/richtexteditor/plugins/all_plugins.js'></script>
+
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .services, .practices {
+        max-width: 60%;
+        margin: auto;
+        padding: 20px 0;
+        }
+
+        .services .row, .practices .row {
+            flex-direction: column;
+        }
+
+        .services-column, .practices-column {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .services-column div, .practices-column div {
+            flex: 48%;
+            height: 300px;
+            padding: 20px 20px;
+        }
+
+        .services-column h1, .practices-column h1 {
+            padding-top: 0;
+        }
+
+        .services-column p, .practices-column p {
+            padding: 15px 0 10px;
+            letter-spacing: 1px;
+        }
+
+        .services-column ul li, .practices-column ul li {
+            margin-left: 20px;
+            color: #777777;
+            letter-spacing: 1px;
+            line-height: 1.8;
+        }
+
+        .services-column a, .practices-column a {
+            margin-top: 20px;
+        }
+
+        .services img, .practices img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .services-column:hover, .practices-column:hover {
+            box-shadow: 0 48px 100px 0 rgba(17, 12, 46, 0.18);
+        }
+
+        #add-element {
+            align-self: end;
+            width: 48px;
+            height: 48px;
+            font-size: x-large;
+            font-weight: bolder ;
+        }
+        .admin-text {
+            min-width: 300px;
+            max-width: 100%;
+            min-height: 150px;
+            max-height: 80%;
+            width: fit-content;
+            resize: none;
+        }
+
+        .delete, .submit {
+            margin: 10px
+        }
+
+        @media (max-width: 700px) {
+
+            .services-column {
+                flex-direction: column;
+                margin: 0;
+            }
+
+            .services img {
+            display: none;
+            }
+
+            .services-column:hover {
+                box-shadow: none;
+            }
+
+        }
+
+        .banner-btn {
+            display: inline-block;
+            text-decoration: none;
+            color: #fff;
+            border: 1px solid #fff;
+            padding: 12px 34px;
+            font-size: 13px;
+            background: transparent;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .banner-btn:hover {
+        border: 1px solid #4c85bd;
+        background: #4c85bd;
+        transition: 0.8s;
+        }
+
+        .blue-btn {
+        color: #4c85bd;
+        border: 1px solid #4c85bd;
+        background: #fff;
+        transition: 0.5s;
+        }
+
+        .blue-btn:hover {
+            color: #fff;
+        }
+
+    </style>
+    <title>Document</title>
+</head>
+<body>
+
+
+    <section class="services">
+        <div class="row">
+            <div class="services-column">
+                <div class="servicecard-text">
+                    <h3>Massage</h3>
+                    <p>Grundstenen i mit arbejde med hesten.</p>
+                    <ul>
+                        <li>Oliemassage</li>
+                        <li>Tryk syd for navlen massage</li>
+                        <li>Body Paint massage</li>
+                        <li>Bindevævsmassage</li>
+                        <li>Udstrækning</li>
+                    </ul>
+
+                    <a href="https://www.google.com/search?sca_esv=588087316&sxsrf=AM9HkKnjbY9F1Stz2kZ4QgwvbkxBlHin6w:1701800390004&q=horse+memes&tbm=isch&source=lnms&sa=X&ved=2ahUKEwjK4eW99PiCAxVf1gIHHZhYC24Q0pQJegQIDRAB&biw=2560&bih=1291" class="banner-btn blue-btn"> Læs Mere</a>
+                </div>
+
+                <div class="servicecard-img">
+                    <img src="img/location3.jpg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <div id="div_editor1" >
+        <div class="services-column">
+            <div class="services-column">
+                <div class="servicecard-text">
+                    <h3>test</h3>
+                    <p>test.</p>
+                    <ul>
+                        <li>test</li>
+                        <li>test</li>
+                        <li>test</li>
+                        <li>test</li>
+                        <li>test/li>
+                    </ul>
+
+                    <a href="https://www.google.com/search?sca_esv=588087316&sxsrf=AM9HkKnjbY9F1Stz2kZ4QgwvbkxBlHin6w:1701800390004&q=horse+memes&tbm=isch&source=lnms&sa=X&ved=2ahUKEwjK4eW99PiCAxVf1gIHHZhYC24Q0pQJegQIDRAB&biw=2560&bih=1291" class="banner-btn blue-btn"> Læs Mere</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+
+        var editor1 = new RichTextEditor("#div_editor1");
+
+        function createSaveButton(editorSelector) {
+            var button_save = document.createElement("button");
+            button_save.textContent = "Save HTML";
+            button_save.addEventListener("click", function () {
+                var editor = document.querySelector(editorSelector + ' iframe.rte-editable');
+
+                // Get the inner content from the RichTextEditor's editable div
+                var innerContent = editor.contentDocument.body.innerHTML;
+
+                // Preserve the existing image HTML
+                var existingImage = document.querySelector(".services-column .servicecard-img img");
+                var imageHTML = existingImage ? existingImage.outerHTML : "";
+
+                // Create a temporary div to hold the inner content
+                var tempDiv = document.createElement('div');
+                tempDiv.innerHTML = innerContent;
+
+                // Extract the content from the temporary div (removing the unnecessary wrapper)
+                var textContent = tempDiv.querySelector('.services-column').innerHTML;
+
+                // Replace the existing content in the servicecard-text div with new text content
+                var existingContentText = document.querySelector(".services-column .servicecard-text");
+                existingContentText.innerHTML = textContent;
+
+                // Replace the existing content in the servicecard-img div with the preserved image HTML
+                var existingContentImg = document.querySelector(".services-column .servicecard-img");
+                existingContentImg.innerHTML = imageHTML;
+            });
+            document.body.appendChild(button_save);
+        }
+
+        createSaveButton("#div_editor1");
+    </script>
+</body>
+</html>
